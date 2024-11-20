@@ -265,7 +265,10 @@ class Renderer:
             rot = Rotation.from_quat(quat).as_matrix()
 
             bbox_corners = (rot @ (corners * dims).T + center[:, None]).T
-            bbox_corners_image = self.body_to_image(bbox_corners, intrinsic, extrinsic).astype(np.int32)
+            output = self.body_to_image(bbox_corners, intrinsic, extrinsic)
+            output = np.nan_to_num(output, nan=0.0, posinf=0.0, neginf=0.0)
+            bbox_corners_image = output.astype(np.int32)
+
 
             color = (255, 255, 255)
             thickness = 1
