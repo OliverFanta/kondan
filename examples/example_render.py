@@ -6,7 +6,7 @@ from src.renderer import Renderer
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Example script for visualizing aiMotive Multimodal Dataset.')
 
-    parser.add_argument("--root-dir", default="data",
+    parser.add_argument("--root-dir", default="/kaggle/input/aimify/aimotive",
                         type=str, help="Root dir of aiMotive Multimodal Dataset.")
     parser.add_argument("--split", default="train",
                         type=str, help="Data split. Options: [train, val]")
