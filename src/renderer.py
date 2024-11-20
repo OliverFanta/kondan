@@ -65,7 +65,7 @@ class Renderer:
             #cv2.imshow(camera.name, img)
             # Assuming img is your image (numpy array)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-            output_path = '/kaggle/working/{timestamp}.jpg'  # Adjust this path as needed
+            output_path = f'/kaggle/working/{timestamp}.jpg'  # Adjust this path as needed
 
             # Save the image using OpenCV
             cv2.imwrite(output_path, img)
@@ -153,7 +153,7 @@ class Renderer:
         #cv2.imshow('Radar', img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-        output_path = '/kaggle/working/{timestamp}.jpg'  # Adjust this path as needed
+        output_path = f'/kaggle/working/{timestamp}.jpg'  # Adjust this path as needed
 
         # Save the image using OpenCV
         cv2.imwrite(output_path, img)
@@ -188,7 +188,7 @@ class Renderer:
         #cv2.imshow(sensor.name, img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-        output_path = '/kaggle/working/{timestamp}.jpg'
+        output_path = f'/kaggle/working/{timestamp}.jpg'
 
         # Save the image using OpenCV
         cv2.imwrite(output_path, img)
