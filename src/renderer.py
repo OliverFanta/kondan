@@ -64,7 +64,7 @@ class Renderer:
             #cv2.imshow(camera.name, img)
 
             print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-
+            display(img)
             display(Image(img))
             # Display the image using Matplotlib
             # plt.figure(figsize=(10, 6))
@@ -172,6 +172,7 @@ class Renderer:
         img = np.flipud(img)
         #cv2.imshow(sensor.name, img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
+        display(img)
         display(Image(img))
         # plt.figure(figsize=(10, 6))
         # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
