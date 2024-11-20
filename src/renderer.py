@@ -62,10 +62,16 @@ class Renderer:
             img = self.resize_image(camera.name, img)
 
             #cv2.imshow(camera.name, img)
+            # Assuming img is your image (numpy array)
+            output_path = '/kaggle/working/output_image.png'  # Adjust this path as needed
 
+            # Save the image using OpenCV
+            cv2.imwrite(output_path, img)
+
+            # Display the saved image in Kaggle Notebook
+            Image(output_path)
             print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-            display(img)
-            display(Image(img))
+            
             # Display the image using Matplotlib
             # plt.figure(figsize=(10, 6))
             # plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for correct colors
@@ -144,8 +150,14 @@ class Renderer:
         img = self.resize_image('radar', img)
         #cv2.imshow('Radar', img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-        display(img)
-        display(Image(img))
+        output_path = '/kaggle/working/output_image_1.png'  # Adjust this path as needed
+
+        # Save the image using OpenCV
+        cv2.imwrite(output_path, img)
+
+        # Display the saved image in Kaggle Notebook
+        Image(output_path)
+        print(f"Image shape: {img.shape}, dtype: {img.dtype}")
         # plt.figure(figsize=(10, 6))
         # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
         # plt.title('Radar')
@@ -172,8 +184,13 @@ class Renderer:
         img = np.flipud(img)
         #cv2.imshow(sensor.name, img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-        display(img)
-        display(Image(img))
+        output_path = '/kaggle/working/output_image_2.png'  # Adjust this path as needed
+
+        # Save the image using OpenCV
+        cv2.imwrite(output_path, img)
+        # Display the saved image in Kaggle Notebook
+        Image(output_path)
+        print(f"Image shape: {img.shape}, dtype: {img.dtype}")
         # plt.figure(figsize=(10, 6))
         # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
         # plt.title(sensor.name)
