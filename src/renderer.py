@@ -11,6 +11,7 @@ from src.loaders.camera_loader import CameraData
 from src.loaders.lidar_loader import LidarData
 from src.loaders.radar_loader import RadarData
 import matplotlib.pyplot as plt
+from IPython.display import display, Image
 
 
 class Renderer:
@@ -64,13 +65,13 @@ class Renderer:
 
             print(f"Image shape: {img.shape}, dtype: {img.dtype}")
 
-
+            display(Image(img))
             # Display the image using Matplotlib
-            plt.figure(figsize=(10, 6))
-            plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for correct colors
-            plt.title(camera.name)
-            plt.axis('off')  # Optional: Remove axes
-            plt.show()
+            # plt.figure(figsize=(10, 6))
+            # plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for correct colors
+            # plt.title(camera.name)
+            # plt.axis('off')  # Optional: Remove axes
+            # plt.show()
 
     def plot_image_annotations(self, img: np.array, annotation: Annotation, camera_params: CameraParams,
                                sensor_name: str) -> np.array:
@@ -143,12 +144,12 @@ class Renderer:
         img = self.resize_image('radar', img)
         #cv2.imshow('Radar', img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-
-        plt.figure(figsize=(10, 6))
-        plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
-        plt.title('Radar')
-        plt.axis('off')  # Optional: Remove axes
-        plt.show()
+        display(Image(img))
+        # plt.figure(figsize=(10, 6))
+        # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
+        # plt.title('Radar')
+        # plt.axis('off')  # Optional: Remove axes
+        # plt.show()
 
     def render_lidar(self, lidar_data: LidarData, annotation: Annotation):
         """
@@ -170,11 +171,12 @@ class Renderer:
         img = np.flipud(img)
         #cv2.imshow(sensor.name, img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-        plt.figure(figsize=(10, 6))
-        plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
-        plt.title(sensor.name)
-        plt.axis('off')  # Optional: Remove axes
-        plt.show()
+        display(Image(img))
+        # plt.figure(figsize=(10, 6))
+        # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
+        # plt.title(sensor.name)
+        # plt.axis('off')  # Optional: Remove axes
+        # plt.show()
 
     def encode_pcd_to_image_grid(self, pcd: np.array) -> Tuple[List[int], List[int]]:
         """
