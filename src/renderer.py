@@ -12,6 +12,7 @@ from src.loaders.lidar_loader import LidarData
 from src.loaders.radar_loader import RadarData
 import matplotlib.pyplot as plt
 from IPython.display import display, Image
+from datetime import datetime
 
 
 class Renderer:
@@ -63,7 +64,8 @@ class Renderer:
 
             #cv2.imshow(camera.name, img)
             # Assuming img is your image (numpy array)
-            output_path = '/kaggle/working/output_image.jpg'  # Adjust this path as needed
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+            output_path = '/kaggle/working/{timestamp}.jpg'  # Adjust this path as needed
 
             # Save the image using OpenCV
             cv2.imwrite(output_path, img)
@@ -150,7 +152,8 @@ class Renderer:
         img = self.resize_image('radar', img)
         #cv2.imshow('Radar', img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-        output_path = '/kaggle/working/output_image_1.jpg'  # Adjust this path as needed
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        output_path = '/kaggle/working/{timestamp}.jpg'  # Adjust this path as needed
 
         # Save the image using OpenCV
         cv2.imwrite(output_path, img)
@@ -184,7 +187,8 @@ class Renderer:
         img = np.flipud(img)
         #cv2.imshow(sensor.name, img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-        output_path = '/kaggle/working/output_image_2.jpg'  # Adjust this path as needed
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        output_path = '/kaggle/working/{timestamp}.jpg'
 
         # Save the image using OpenCV
         cv2.imwrite(output_path, img)
