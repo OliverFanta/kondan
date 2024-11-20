@@ -10,6 +10,7 @@ from src.data_loader import DataItem
 from src.loaders.camera_loader import CameraData
 from src.loaders.lidar_loader import LidarData
 from src.loaders.radar_loader import RadarData
+import matplotlib.pyplot as plt
 
 
 class Renderer:
@@ -59,7 +60,14 @@ class Renderer:
             img = self.plot_image_annotations(img, annotation, camera_params, camera.name)
             img = self.resize_image(camera.name, img)
 
-            cv2.imshow(camera.name, img)
+            #cv2.imshow(camera.name, img)
+
+            # Display the image using Matplotlib
+            plt.figure(figsize=(10, 6))
+            plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for correct colors
+            plt.title(camera.name)
+            plt.axis('off')  # Optional: Remove axes
+            plt.show()
 
     def plot_image_annotations(self, img: np.array, annotation: Annotation, camera_params: CameraParams,
                                sensor_name: str) -> np.array:
@@ -130,7 +138,12 @@ class Renderer:
         # Flip is needed because of body coordinate system (x -> forward, y -> left, z -> top).
         img = np.flipud(img)
         img = self.resize_image('radar', img)
-        cv2.imshow('Radar', img)
+        #cv2.imshow('Radar', img)
+        plt.figure(figsize=(10, 6))
+        plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
+        plt.title('Radar')
+        plt.axis('off')  # Optional: Remove axes
+        plt.show()
 
     def render_lidar(self, lidar_data: LidarData, annotation: Annotation):
         """
@@ -150,7 +163,12 @@ class Renderer:
         img = self.resize_image('lidar', img)
         # Flip is needed because of body coordinate system (x -> forward, y -> left, z -> top).
         img = np.flipud(img)
-        cv2.imshow(sensor.name, img)
+        #cv2.imshow(sensor.name, img)
+        plt.figure(figsize=(10, 6))
+        plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
+        plt.title(sensor.name)
+        plt.axis('off')  # Optional: Remove axes
+        plt.show()
 
     def encode_pcd_to_image_grid(self, pcd: np.array) -> Tuple[List[int], List[int]]:
         """
