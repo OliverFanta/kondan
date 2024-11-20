@@ -62,6 +62,9 @@ class Renderer:
 
             #cv2.imshow(camera.name, img)
 
+            print(f"Image shape: {img.shape}, dtype: {img.dtype}")
+
+
             # Display the image using Matplotlib
             plt.figure(figsize=(10, 6))
             plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for correct colors
@@ -139,6 +142,8 @@ class Renderer:
         img = np.flipud(img)
         img = self.resize_image('radar', img)
         #cv2.imshow('Radar', img)
+        print(f"Image shape: {img.shape}, dtype: {img.dtype}")
+
         plt.figure(figsize=(10, 6))
         plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
         plt.title('Radar')
@@ -164,6 +169,7 @@ class Renderer:
         # Flip is needed because of body coordinate system (x -> forward, y -> left, z -> top).
         img = np.flipud(img)
         #cv2.imshow(sensor.name, img)
+        print(f"Image shape: {img.shape}, dtype: {img.dtype}")
         plt.figure(figsize=(10, 6))
         plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
         plt.title(sensor.name)
