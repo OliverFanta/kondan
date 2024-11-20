@@ -144,6 +144,7 @@ class Renderer:
         img = self.resize_image('radar', img)
         #cv2.imshow('Radar', img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
+        display(img)
         display(Image(img))
         # plt.figure(figsize=(10, 6))
         # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
