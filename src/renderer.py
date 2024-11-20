@@ -63,7 +63,7 @@ class Renderer:
 
             #cv2.imshow(camera.name, img)
             # Assuming img is your image (numpy array)
-            output_path = '/kaggle/working/output_image.png'  # Adjust this path as needed
+            output_path = '/kaggle/working/output_image.jpg'  # Adjust this path as needed
 
             # Save the image using OpenCV
             cv2.imwrite(output_path, img)
@@ -150,7 +150,7 @@ class Renderer:
         img = self.resize_image('radar', img)
         #cv2.imshow('Radar', img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-        output_path = '/kaggle/working/output_image_1.png'  # Adjust this path as needed
+        output_path = '/kaggle/working/output_image_1.jpg'  # Adjust this path as needed
 
         # Save the image using OpenCV
         cv2.imwrite(output_path, img)
@@ -184,7 +184,7 @@ class Renderer:
         img = np.flipud(img)
         #cv2.imshow(sensor.name, img)
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
-        output_path = '/kaggle/working/output_image_2.png'  # Adjust this path as needed
+        output_path = '/kaggle/working/output_image_2.jpg'  # Adjust this path as needed
 
         # Save the image using OpenCV
         cv2.imwrite(output_path, img)
