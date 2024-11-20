@@ -69,7 +69,7 @@ class Renderer:
             cv2.imwrite(output_path, img)
 
             # Display the saved image in Kaggle Notebook
-            Image(output_path)
+            display(filename=Image(output_path))
             print(f"Image shape: {img.shape}, dtype: {img.dtype}")
             
             # Display the image using Matplotlib
@@ -156,7 +156,7 @@ class Renderer:
         cv2.imwrite(output_path, img)
 
         # Display the saved image in Kaggle Notebook
-        Image(output_path)
+        display(Image(filename=output_path))
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
         # plt.figure(figsize=(10, 6))
         # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
@@ -189,7 +189,7 @@ class Renderer:
         # Save the image using OpenCV
         cv2.imwrite(output_path, img)
         # Display the saved image in Kaggle Notebook
-        Image(output_path)
+        display(Image(filename=output_path))
         print(f"Image shape: {img.shape}, dtype: {img.dtype}")
         # plt.figure(figsize=(10, 6))
         # plt.imshow(img, cmap='gray')  # Use 'gray' colormap for radar data visualization
